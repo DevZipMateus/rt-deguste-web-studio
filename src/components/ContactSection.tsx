@@ -1,50 +1,8 @@
 
-import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Clock, Send } from 'lucide-react';
+import React from 'react';
+import { Mail, Phone, MapPin, Clock } from 'lucide-react';
 
 const ContactSection = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    company: '',
-    message: ''
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Here you would typically send the form data to your backend
-    console.log('Form submitted:', formData);
-    
-    // Create WhatsApp message
-    const whatsappMessage = `Olá! Gostaria de mais informações sobre os produtos da RT-Deguste.
-    
-Nome: ${formData.name}
-Email: ${formData.email}
-Telefone: ${formData.phone}
-Empresa: ${formData.company}
-Mensagem: ${formData.message}`;
-    
-    const whatsappUrl = `https://wa.me/5571993524067?text=${encodeURIComponent(whatsappMessage)}`;
-    window.open(whatsappUrl, '_blank');
-    
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      company: '',
-      message: ''
-    });
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
   return (
     <section id="contato" className="section-padding bg-white">
       <div className="section-container">
@@ -58,14 +16,14 @@ Mensagem: ${formData.message}`;
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="max-w-4xl mx-auto">
           {/* Contact Information */}
           <div className="space-y-8">
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
                 Informações de <span className="text-green">Contato</span>
               </h3>
-              <div className="space-y-6">
+              <div className="grid md:grid-cols-2 gap-6">
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-orange/10 rounded-lg flex items-center justify-center flex-shrink-0">
                     <Phone className="w-6 h-6 text-orange" />
@@ -118,9 +76,14 @@ Mensagem: ${formData.message}`;
             </div>
 
             {/* Quick Contact Buttons */}
-            <div className="bg-gradient-to-r from-orange/5 to-green/5 rounded-lg p-6">
-              <h4 className="font-bold text-gray-900 mb-4">Contato Rápido</h4>
-              <div className="space-y-3">
+            <div className="bg-gradient-to-r from-orange/5 to-green/5 rounded-lg p-8">
+              <h4 className="font-bold text-gray-900 mb-6 text-center text-2xl">
+                Solicite um <span className="text-orange">Orçamento</span>
+              </h4>
+              <p className="text-gray-600 mb-6 text-center">
+                Entre em contato conosco através dos canais abaixo para solicitar seu orçamento personalizado.
+              </p>
+              <div className="grid md:grid-cols-2 gap-4 max-w-md mx-auto">
                 <a
                   href="https://wa.me/5571993524067"
                   target="_blank"
@@ -139,108 +102,6 @@ Mensagem: ${formData.message}`;
                 </a>
               </div>
             </div>
-          </div>
-
-          {/* Contact Form */}
-          <div className="bg-gray-50 rounded-2xl p-8">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">
-              Solicite um <span className="text-orange">Orçamento</span>
-            </h3>
-            
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                  Nome Completo *
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="form-input"
-                  placeholder="Seu nome completo"
-                />
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-4">
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                    Email *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="form-input"
-                    placeholder="seu@email.com"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                    Telefone *
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    required
-                    className="form-input"
-                    placeholder="(71) 99999-9999"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
-                  Empresa/CNPJ
-                </label>
-                <input
-                  type="text"
-                  id="company"
-                  name="company"
-                  value={formData.company}
-                  onChange={handleChange}
-                  className="form-input"
-                  placeholder="Nome da empresa ou CNPJ"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                  Mensagem *
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={4}
-                  className="form-input resize-none"
-                  placeholder="Conte-nos sobre suas necessidades..."
-                ></textarea>
-              </div>
-
-              <button
-                type="submit"
-                className="w-full bg-orange text-white py-4 px-6 rounded-lg font-semibold hover:bg-orange/90 transition-all duration-300 flex items-center justify-center space-x-2 hover:scale-105"
-              >
-                <Send className="w-5 h-5" />
-                <span>Enviar Mensagem</span>
-              </button>
-            </form>
-
-            <p className="text-sm text-gray-500 mt-4 text-center">
-              * Campos obrigatórios. Responderemos em até 24 horas.
-            </p>
           </div>
         </div>
       </div>
