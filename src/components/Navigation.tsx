@@ -19,7 +19,6 @@ const Navigation = () => {
     { name: 'Início', href: '#inicio' },
     { name: 'Sobre', href: '#sobre' },
     { name: 'Serviços', href: '#servicos' },
-    { name: 'Planos', href: '#planos' },
     { name: 'Contato', href: '#contato' }
   ];
 

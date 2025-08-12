@@ -10,8 +10,8 @@ const HeroSection = () => {
     }
   };
 
-  const handleScrollToPlans = () => {
-    const element = document.querySelector('#planos');
+  const handleScrollToContact = () => {
+    const element = document.querySelector('#contato');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
@@ -59,10 +59,10 @@ const HeroSection = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <button 
-              onClick={handleScrollToPlans}
+              onClick={handleScrollToContact}
               className="btn-hero animate-scale-in"
             >
-              Ver Planos Atacado
+              Entre em Contato
             </button>
             <button 
               onClick={handleScrollToServices}
