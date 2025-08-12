@@ -1,28 +1,29 @@
 
 import React from 'react';
-import { Award, Users, Clock, Target } from 'lucide-react';
+import { Leaf, Award, Users, Heart } from 'lucide-react';
+import ProductCarousel from './ProductCarousel';
 
 const AboutSection = () => {
   const features = [
     {
+      icon: Leaf,
+      title: 'Produtos Naturais',
+      description: 'Selecionamos apenas as melhores frutas secas, sem conservantes artificiais.'
+    },
+    {
       icon: Award,
       title: 'Qualidade Premium',
-      description: 'Selecionamos apenas as melhores frutas secas, garantindo sabor e qualidade excepcionais.'
+      description: 'Rigoroso controle de qualidade em todos os processos de seleção e embalagem.'
     },
     {
       icon: Users,
       title: 'Atendimento Especializado',
-      description: 'Nossa equipe oferece suporte completo, desde a escolha até a entrega dos produtos.'
+      description: 'Equipe experiente para atender suas necessidades específicas.'
     },
     {
-      icon: Clock,
-      title: 'Entrega Pontual',
-      description: 'Compromisso com prazos e pontualidade nas entregas para empresas e distribuidores.'
-    },
-    {
-      icon: Target,
-      title: 'Foco no Cliente',
-      description: 'Soluções personalizadas para atender às necessidades específicas de cada cliente.'
+      icon: Heart,
+      title: 'Compromisso',
+      description: 'Dedicação total à satisfação dos nossos clientes e parceiros.'
     }
   ];
 
@@ -34,64 +35,69 @@ const AboutSection = () => {
             Sobre a <span className="text-orange">RT-Deguste</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Somos especialistas em frutas secas premium, oferecendo produtos de alta qualidade 
-            para empresas que buscam excelência e sabor diferenciado.
+            Especialistas em frutas secas de qualidade premium, atendendo o mercado atacadista 
+            com excelência e tradição há anos.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-          <div className="space-y-6">
-            <h3 className="text-3xl font-bold text-gray-900">
-              Nossa <span className="text-green">Especialidade</span>
+        {/* Product Carousel */}
+        <div className="mb-20">
+          <h3 className="text-3xl font-bold text-center text-gray-900 mb-12">
+            Nossos <span className="text-green">Produtos</span>
+          </h3>
+          <ProductCarousel />
+        </div>
+
+        {/* Company Story */}
+        <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
+          <div className="animate-fade-in-up">
+            <h3 className="text-3xl font-bold text-gray-900 mb-6">
+              Nossa História
             </h3>
-            <p className="text-lg text-gray-600 leading-relaxed">
-              Trabalhamos com uma seleção cuidadosa de frutas secas, incluindo uva passa, 
-              ameixa, amêndoa e outras variedades premium. Nossa experiência no mercado 
-              nos permite oferecer produtos de qualidade superior com preços competitivos.
+            <p className="text-gray-600 mb-6 leading-relaxed">
+              A RT-Deguste nasceu da paixão por oferecer produtos naturais de qualidade excepcional. 
+              Trabalhamos com frutas secas cuidadosamente selecionadas, incluindo uva passa, ameixa, 
+              amêndoas e muito mais.
             </p>
-            <p className="text-lg text-gray-600 leading-relaxed">
-              Focamos especialmente no atendimento a empresas (CNPJ), oferecendo condições 
-              especiais para compras no atacado e um serviço diferenciado com promotor 
-              de vendas dedicado.
+            <p className="text-gray-600 mb-6 leading-relaxed">
+              Nossa missão é fornecer produtos premium para o mercado atacadista, garantindo 
+              qualidade constante e atendimento personalizado para cada cliente.
             </p>
-            <div className="flex items-center space-x-4 text-orange font-semibold">
-              <span className="text-3xl font-bold">10+</span>
-              <span>Anos de experiência no mercado</span>
+            <div className="flex items-center space-x-4">
+              <div className="w-12 h-12 bg-gradient-to-r from-orange to-green rounded-full flex items-center justify-center">
+                <Award className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <h4 className="font-bold text-gray-900">Qualidade Garantida</h4>
+                <p className="text-gray-600">Produtos com certificação de qualidade</p>
+              </div>
             </div>
           </div>
-          
-          <div className="grid grid-cols-2 gap-4">
-            <div className="bg-white p-6 rounded-lg shadow-lg text-center">
-              <div className="text-3xl font-bold text-orange mb-2">100%</div>
-              <div className="text-gray-600">Qualidade Garantida</div>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-lg text-center">
-              <div className="text-3xl font-bold text-green mb-2">24h</div>
-              <div className="text-gray-600">Suporte Dedicado</div>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-lg text-center">
-              <div className="text-3xl font-bold text-orange mb-2">500+</div>
-              <div className="text-gray-600">Clientes Satisfeitos</div>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-lg text-center">
-              <div className="text-3xl font-bold text-green mb-2">15+</div>
-              <div className="text-gray-600">Variedades Disponíveis</div>
-            </div>
+
+          <div className="grid grid-cols-2 gap-6">
+            {features.map((feature, index) => (
+              <div key={index} className="text-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <div className="w-12 h-12 bg-gradient-to-r from-orange to-green rounded-full flex items-center justify-center mx-auto mb-4">
+                  <feature.icon className="w-6 h-6 text-white" />
+                </div>
+                <h4 className="font-bold text-gray-900 mb-2">{feature.title}</h4>
+                <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
+              </div>
+            ))}
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {features.map((feature, index) => (
-            <div key={index} className="service-card text-center group">
-              <div className="mb-6">
-                <div className="w-16 h-16 bg-gradient-to-r from-orange to-green rounded-full flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300">
-                  <feature.icon className="w-8 h-8 text-white" />
-                </div>
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">{feature.title}</h3>
-              <p className="text-gray-600 leading-relaxed">{feature.description}</p>
-            </div>
-          ))}
+        {/* Call to Action */}
+        <div className="text-center bg-gradient-to-r from-orange/10 to-green/10 rounded-2xl p-8">
+          <h3 className="text-2xl font-bold text-gray-900 mb-4">
+            Pronto para conhecer nossos produtos?
+          </h3>
+          <p className="text-gray-600 mb-8">
+            Entre em contato conosco e descubra a qualidade dos nossos produtos premium.
+          </p>
+          <button className="btn-hero">
+            Fale Conosco
+          </button>
         </div>
       </div>
     </section>
