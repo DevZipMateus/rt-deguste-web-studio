@@ -56,11 +56,11 @@
   }
 }
 
-/* Custom Animations */
-@keyframes fade-in {
+/* Simplified Custom Animations */
+@keyframes fade-in-simple {
   0% {
-    opacity: 0;
-    transform: translateY(20px);
+    opacity: 0.8;
+    transform: translateY(10px);
   }
   100% {
     opacity: 1;
@@ -100,9 +100,9 @@
 }
 
 @layer components {
-  /* Animation Classes */
-  .animate-fade-in {
-    animation: fade-in 0.8s ease-out forwards;
+  /* Simplified Animation Classes */
+  .animate-fade-in-simple {
+    animation: fade-in-simple 1s ease-out forwards;
   }
   
   .animate-fade-in-up {
@@ -134,11 +134,11 @@
   
   /* Button Variants */
   .btn-hero {
-    @apply bg-orange text-orange-foreground hover:bg-orange/90 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105;
+    @apply bg-orange text-orange-foreground hover:bg-orange/90 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl;
   }
   
   .btn-secondary {
-    @apply bg-green text-green-foreground hover:bg-green/90 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105;
+    @apply bg-green text-green-foreground hover:bg-green/90 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl;
   }
   
   .btn-outline {
@@ -156,7 +156,7 @@
   
   /* Card Styles */
   .service-card {
-    @apply bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-8 border border-gray-100 hover:border-orange/20 hover:scale-105;
+    @apply bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-8 border border-gray-100 hover:border-orange/20;
   }
   
   .plan-card {
@@ -164,7 +164,7 @@
   }
   
   .plan-card-featured {
-    @apply bg-gradient-to-br from-orange/5 to-green/5 border-orange shadow-xl scale-105;
+    @apply bg-gradient-to-br from-orange/5 to-green/5 border-orange shadow-xl;
   }
   
   /* Navigation Styles */
@@ -179,7 +179,7 @@
   
   /* WhatsApp Button */
   .whatsapp-float {
-    @apply fixed bottom-6 right-6 z-50 bg-green text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110;
+    @apply fixed bottom-6 right-6 z-50 bg-green text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300;
   }
 }
 
