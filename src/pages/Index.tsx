@@ -9,6 +9,8 @@ import Footer from '../components/Footer';
 import WhatsAppButton from '../components/WhatsAppButton';
 
 const Index = () => {
+  console.log('Index page loading...');
+  
   return (
     <div className="min-h-screen">
       <Navigation />
